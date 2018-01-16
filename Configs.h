@@ -7,23 +7,23 @@
 #include <boost\property_tree\ptree.hpp>
 #include <boost\property_tree\info_parser.hpp>
 
-class Configs 
+class Configs
 	: public boost::serialization::singleton<Configs>
 {
 public:
 	Configs();
 	~Configs();
 
-private:
+	template<typename T>
+	inline T get(const std::string &key, T val)
+	{
+		return this->m_cfgs.get<T>(key, val);
+	}
 
+private:
+	/*≈‰÷√œÓtree*/
+	boost::property_tree::ptree m_cfgs;
 };
 
-Configs::Configs()
-{
-}
-
-Configs::~Configs()
-{
-}
-
 #endif // !__CONFIGS_H__
+
