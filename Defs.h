@@ -11,6 +11,11 @@ typedef long long LL;
 ////////////////////////////////////////////////////////////////////
 // 常量定义
 //
-const char DEFAULT_GAMECONFIG_PATH[] = "cfg.info";
+
+/*默认游戏配置文件路径（相对）*/
+const char _PATH_DEFAULT_GAMECONFIG[] = "cfg.info";
+
+const char _PATH_LOG_DIR[] = "logs/";
+
 
 #endif // !__DEFS_H__
