@@ -7,6 +7,8 @@
 #include <boost\property_tree\ptree.hpp>
 #include <boost\property_tree\info_parser.hpp>
 
+#define CFGs Configs::get_mutable_instance()
+
 class Configs
 	: public boost::serialization::singleton<Configs>
 {

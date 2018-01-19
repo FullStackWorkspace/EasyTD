@@ -1,13 +1,23 @@
 #include "Logs.h"
 
+using namespace std;
 namespace fs = boost::filesystem;
 
-void Logs::debug(const char* msg)
+void Logs::Debug(const char* msg)
 {
+	//ofstream fout(this->m_pathDebugLog.string());
+	//fout << msg << endl;
+	//fout.close();
+
+	printf(m_pathDebugLog.string().c_str());
+
+#ifdef _DEBUG
+	printf(msg);
+#endif
 
 }
 
-void Logs::error(const char* msg)
+void Logs::Error(const char* msg)
 {
 
 }

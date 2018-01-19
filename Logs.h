@@ -5,9 +5,11 @@
 
 #include <boost/serialization/singleton.hpp>
 #include <boost/filesystem.hpp>
+#include <fstream>
 #include "Defs.h"
+#include "Utils.h"
 
-#define LOGs Utils.get_mutable_instance()
+#define LOGs Logs::get_mutable_instance()
 
 class Logs
 	: public boost::serialization::singleton<Logs>
@@ -16,9 +18,17 @@ public:
 	Logs();
 	~Logs();
 
-	void debug(const char* msg);
+	void Debug(const char* msg);
 
-	void error(const char* msg);
+	template<class TFirst, class... TOther>
+	void Debug(const char* format, TFirst&& first, TOther&&... other)
+	{
+		auto msg = UTILs.Format(format, first, other...);
+
+		Debug(msg.c_str());
+	}
+
+	void Error(const char* msg);
 
 private:
 	/*日志文件目录*/
