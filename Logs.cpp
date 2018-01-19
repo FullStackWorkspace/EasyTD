@@ -2,6 +2,16 @@
 
 namespace fs = boost::filesystem;
 
+void Logs::debug(const char* msg)
+{
+
+}
+
+void Logs::error(const char* msg)
+{
+
+}
+
 
 Logs::Logs()
 {

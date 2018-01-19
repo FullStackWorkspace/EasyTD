@@ -5,7 +5,7 @@ namespace pt = boost::property_tree;
 
 Configs::Configs()
 {
-	pt::read_info(DEFAULT_GAMECONFIG_PATH, m_cfgs);
+	pt::read_info(_PATH_DEFAULT_GAMECONFIG, m_cfgs);
 }
 
 Configs::~Configs()

@@ -7,6 +7,8 @@
 #include <boost/filesystem.hpp>
 #include "Defs.h"
 
+#define LOGs Utils.get_mutable_instance()
+
 class Logs
 	: public boost::serialization::singleton<Logs>
 {
@@ -14,7 +16,9 @@ public:
 	Logs();
 	~Logs();
 
-	void debug();
+	void debug(const char* msg);
+
+	void error(const char* msg);
 
 private:
 	/*日志文件目录*/
