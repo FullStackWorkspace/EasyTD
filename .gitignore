@@ -289,3 +289,5 @@ __pycache__/
 
 # My IGNORE
 *.sln
+*.vcxproj
+a.txt
