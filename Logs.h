@@ -11,6 +11,10 @@
 
 #define LOGs Logs::get_mutable_instance()
 
+/*
+日志类(单例)
+用于输出日志
+*/
 class Logs
 	: public boost::serialization::singleton<Logs>
 {
@@ -18,6 +22,7 @@ public:
 	Logs();
 	~Logs();
 
+	// 输出debug信息
 	void Debug(const char* msg);
 
 	template<class TFirst, class... TOther>

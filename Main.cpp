@@ -6,13 +6,17 @@
 
 using namespace std;
 
+/*程序入口*/
 int main(int argc, char* argv[])
 {
+	// 计时器
 	boost::timer t;
 
+	// 获取配置文件中的屏幕宽高，第二个参数是默认值
 	int w = CFGs.get<int>("window.default_width", 800);
 	int h = CFGs.get<int>("window.default_height", 600);
 
+//用预编译判断是否DEBUG环境，是的话同时打开控制台
 #ifdef _DEBUG
 	initgraph(w, h, SHOWCONSOLE);
 #else
@@ -33,6 +37,7 @@ int main(int argc, char* argv[])
 
 	closegraph();
 
+	// 显示计时器时间
 	cout << t.elapsed() << endl;
 	return 0;
 }
